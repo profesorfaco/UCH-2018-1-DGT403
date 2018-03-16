@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Multimedia II → Clase 1 → Viernes 16 de marzo</title>
+<!--esto es un comentario, y te lo dejo aquí para indicar que lo que sigue es CSS-->
+<style>
+	
+	body{
+		font-family: Helvetica, Arial, sans-serif;
+		padding:5% 15%;
+		color:#666;
+		background-color:#ddd;
+		line-height: 1.42;
+	}
+	
+	@media screen and (orientation: portrait) {
+		body{padding:5%;}
+	}
+
+	h1{
+	   color:#dd2c00;
+	}
+
+	h3{margin-top:2.0rem;}
+
+	a{color:black; text-decoration: underline;}
+
+	a:hover{color:black; text-decoration: none;}
+
+	code{
+		background:rgba(255,255,255,0.6);
+		color:rgba(0,0,0,0.5);
+		padding:1px 2px;
+		margin:0;
+		font-family: 'Roboto Mono', monospace;
+		font-size:98%;
+	}
+
+	pre{overflow-x:auto;}
+
+	figure{
+		margin:0;
+		padding:0.25rem;
+		background:white;
+		box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	}
+
+	figure img{
+		width:100%;
+		height:auto;
+	}
+
+	figure figcaption{
+		padding:0.25rem;
+		font-size:90%;
+	}
+
+	div{
+		background:rgba(0,0,0,0.1);
+		font-size:95%;
+		padding:0.25rem 0.75rem 1rem 0.75rem;
+		margin:25px 0;
+		border-bottom:1px solid white;
+		border-right:1px solid white;
+		border-top:1px solid silver;
+		border-left:1px solid silver;
+	}
+
+	button{
+		font-size:1rem;
+		padding:0.5rem;
+		border-radius: 5px;
+		border-top:1px solid white;
+		border-left:1px solid white;
+		border-bottom:1px solid silver;
+		border-right:1px solid silver;
+		font-weight: 800;
+		margin-bottom:0.5rem;
+	}
+
+	button:hover{
+		background:#aaa;
+		transition: 0.5s ease all;
+		border-top:1px solid silver;
+		border-left:1px solid silver;
+		border-bottom:1px solid white;
+		border-right:1px solid white;	
+	}
+
+	.destaca{
+		font-weight: bold;
+		font-size:102%;
+		color:#555;
+	}
+
+	#cifra{
+		font-family: 'Rock Salt', cursive;
+		line-height: 1.7;
+		color:#000;
+	}
+
+
+	#fecha{
+		border-top:1px solid #aaa;
+		padding:1rem 0;
+		margin-top:3rem;
+		font-size: 80%;
+		letter-spacing: 0.1rem;
+		text-align: center;
+	}
+
+</style>
+
+<!--estos son vínculos a hojas de estilo que está en línea, y me permiten usar fuentes especiales -->
+<link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+<!--Lo que sigue es JavaScript-->
+<script>
+var saludo = "Hola mundo!";
+console.log(saludo + " Yo soy la consola de JavaScript");
+</script>
+
+</head>
+<body>
+
+<h1></h1>
+
+<h2>HTML y CSS</h2>
+
+<p>Estás viendo una página de texto en gris oscuro sobre gris claro. El primer texto, que destaca por su tamaño, peso y color, es un encabezado de primer nivel, al que se le asignó un color distinto.</p> 
+
+<p>En lo que estás viendo dentro de la ventana de tu navegador, el estilo es asignado con <a href="https://www.w3.org/standards/webdesign/htmlcss#whatcss" target="_blank" title="HTML & CSS · What is CSS">CSS</a>. Mientras que la estructura es definida con <a href="https://www.w3.org/standards/webdesign/htmlcss#whathtml" target="_blank" title="HTML & CSS · What is HTML">HTML</a>. 
+
+<p>Si te atreves a ver el código fuente de la página, podrías identificar a las reglas CSS por su estructura básica de <code>selector{propiedad:valor;}</code>.</p> 
+
+<p>Y podrías identificar a los <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento" target="_blank" title="Referencia de Elementos HTML">elementos HTML</a> por su estructura básica de <code>&lt;etiqueta&gt;contenido&lt;/etiqueta&gt;</code>.</p>
+
+<p>Ahora entremos en detalles "multimediales" con HTML. Podría partir comentándote que esto es un párrafo. Los párrafos no tienen niveles, por lo que nunca encontrarán un <code>&lt;p1&gt;…&lt;/p1&gt;</code> como sí podrían encontrar desde <code>&lt;h1&gt;…&lt;/h1&gt;</code> hasta <code>&lt;h6&gt;…&lt;/h6&gt;</code>, que son encabezados (h<s>eadings</s>).</p>
+
+<p>En lo que sigue inmediatamente verás lo que resultad de usar los elementos <code>&lt;figure&gt;…&lt;/figure&gt;</code>, <code>&lt;video&gt;…&lt;/video&gt;</code>, <code>&lt;audio&gt;…&lt;/audio&gt;</code> y <code>&lt;svg&gt;…&lt;/svg&gt;</code>.</p>
+
+<h4>&lt;figure&gt;…&lt;/figure&gt;</h4>
+
+<p>Un elemento figure puede contener un elemento <abbr title="image">img</abbr> y además un elemento figcaption</p>
+<figure>
+<img src="media/end.jpg" alt="Alternativa para cuando no se vea la imagen">
+<figcaption>The End of the F***ing World es una serie de televisión británica, basada en la novela gráfica <a href="http://www.fantagraphics.com/teotfw-en/" target="_blank" title="Graphic Novels :: The End of the Fucking World">The End of the Fucking World por Charles S. Forsman</a>.</figcaption>
+</figure>
+
+<h4>&lt;video&gt;…&lt;/video&gt;</h4>
+
+<p>Un elemento video debe contener opciones de <abbr title="source">src</abbr>, <a href="https://www.w3schools.com/tags/tag_video.asp" target="_blank">para evitar problemas de compatibilidad del formato de video con algunos navegadores</a>. También debe tener un mensaje para avisarle a los navegadores más viejos que ni siquiera están entendiendo el elemento video.</p>
+
+<video controls>
+<source src="media/el_video.webm" type="video/webm">
+<source src="media/el_video.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<h4>&lt;audio&gt;…&lt;/audio&gt;</h4>
+
+<p>Lo mismo pasa con el elemento audio. Debe contener opciones de <abbr title="source">src</abbr>, <a href="https://www.w3schools.com/tags/tag_audio.asp" target="_blank">para evitar problemas de compatibilidad del formato de audio con algunos navegadores</a>. También debe tener un mensaje para avisarle a los navegadores más viejos que ni siquiera están entendiendo el elemento audio.</p>
+
+<audio controls>
+<source src="media/el_audio.ogg" type="audio/ogg">
+<source src="media/el_audio.mp3" type="audio/mpeg">
+Un aviso, por si las moscas: Tu navegador es muy viejo, no entiende lo que es un elemento audio.
+</audio>
+
+<h4>&lt;svg&gt;…&lt;/svg&gt;</h4>
+
+<p>SVG es Scalable Vector Graphics. Esta etiqueta te permite (d)escribir dibujos verctoriales en una página web:</p>
+
+<svg width="300" height="300" style="background:#eee; font-family: Helvetica, Arial, sans-serif; font-size:24px;">
+<circle cx="150" cy="150" r="90" stroke="#ccc" stroke-width="1" fill="#bbb" />
+<circle cx="125" cy="125" r="10" fill="#000" />
+<circle cx="175" cy="125" r="10" fill="#000" />
+<text x="139" y="175" fill="black">º º</text>
+<text x="140" y="200" fill="black" transform="rotate(90 143,200)">D</text>
+</svg>  
+
+
+<p class="destaca">Bien podrías llamar a diversos recursos con HTML, y hacer que se vea todo muy "mono" con CSS. Pero no podemos pedirle a la página "hacer algo" con un lenguaje informático que no es lenguaje de programación, solo de descripción.</p>
+
+<h2>JavaScript</h2>
+
+<p>Entre los lenguajes de programación para web, podemos diferenciar a unos que se ejecutan <a href="https://en.wikipedia.org/wiki/Dynamic_web_page#Server-side_scripting" target="_blank" title="Wikipedia · Dynamic web page">del lado del servidor</a>, y otros que se ejecutan <a href="https://en.wikipedia.org/wiki/Dynamic_web_page#Client-side_scripting" target="_blank" title="Wikipedia · Dynamic web page">del lado del cliente</a>.</p>
+<p>Por tratarse de una introducción, nos limitaremos a explorar JavaScript como lenguaje de programación del lado del cliente. Esto implica que la ejecución de lo que programemos será responsabilidad de cada navegador.</p>
+
+
+<h3>1. Jugar con la consola de JavaScript del navegador</h3>
+
+<p>En cada navegador, la consola de JavaScript posee un aspecto determinado y se abre de forma diferente. Para abrirla, puedes utilizar el "shortcut" de teclado que corresponda:</p>
+
+<ul>
+<li>Si estás usando Chrome en PC, presiona Ctrl + Shift + J. Si estás usando el mismo navegador en Mac, presiona Cmd + Alt + J</li>
+<li>Si estás usando Firefox en PC, presiona Ctrl + Shift + K. Si estás usando el mismo navegador en Mac, presiona: Cmd + Alt + K</li>
+<li>Si estás usando Safari, presiona: Cmd + Alt + C</li>
+<li>Si estás usando otro navegador, no sabría como ayudarte con el "shortcut".</li>
+</ul>
+
+<p>Cuando se muestre la consola, podrás leer un mensaje que resulta de <a href="https://es.answers.yahoo.com/question/index?qid=20070130103245AAqyGWP" target="_blank">concatenar</a> lo que guardaba una variable con una cadena de caracteres entre comillas; me explico:</p>
+
+<pre><code>console.log(saludo + " Yo soy la consola de JavaScript");</code></pre>
+
+<p>Usando <code>console.log()</code> programas la impresión de un mensaje en la consola (este método puede resultar prescindible cuando trabajamos directamente sobre la consola, pero es mejor acostumbrarse a usarlo). El contenido del mensaje impreso será lo que incluyas dentro del paréntesis. En este caso, lo primero entre paréntesis es <code>saludo</code>, sin comillas. Eso es una <strong>var</strong>iable, a la que se le encargó guardar la cadena de caracteres <code>Hola mundo!</code>. Lo que sigue es un signo <code>+</code> que concatenará esa cadena de caracteres con otra que se agrega, entre comillas, dentro del mismo paréntesis: <code>" Yo soy la consola de JavaScript"</code>.
+
+<p>En el párrafo anterior y en este, la palabra <strong>var</strong>iable tiene su primera sílaba destacada. Esto es para que sepas cómo se declara una variable en JavaScript: Anteponiendo un <strong>var</strong> a una palabra que será el nombre de la variable.</p>
+
+<p>Importante es recordar que cuando le quieras encargar a la variable guardar una cadena de caracteres, debes usar comillas:</p>
+
+<pre><code>var sujeto = "Yo";
+var adjetivo = "Lorem ipsum";
+console.log(sujeto +" soy muy "+ adjetivo);</code></pre>
+
+<p>Pero cuando le quieras encargar números, no agregues comillas:</p>
+
+<pre><code>var primervalor = 20;
+var segundovalor = 30;
+console.log(primervalor + segundovalor);</code></pre>
+
+<p>¡Antes de que presiones Enter! Una pregunta: ¿Qué crees que resulte, 50 o 2030?</p>
+
+<p>En caso que no le hayas acertado a la respuesta, podrías tener más suerte con lo que sigue: Piensa un número entre 1 y 10 (incluyendo ambos extremos).</p>
+
+<pre><code>console.log(Math.round((Math.random() * 10) + 1));</code></pre>
+
+<p>Eso pudo ser complicado, pero vamos por partes, por paréntesis, de adentro hacia afuera:</p>
+
+<ul>
+	<li>La función <code>Math.random()</code> retorna un número no entero, pseudo-aleatorio, desde el 0 hasta casi el 1 (por eso hay que multiplicar por 10 y sumar 1).</li>
+	<li>La funcióin <code>Math.round()</code> retorna el número redondeado.</li>
+</ul>
+
+<p>Tus opciones partían en 1, incrementándose tantas veces como lo permitiese la condición de menor o igual a 10:</p>
+
+<pre><code>for (var x=1; x<=10; x++){ 
+console.log(x); 
+}</code></pre>
+
+<p>Y desde aquí puedes empezar a complejizar o complicarte:</p>
+
+<pre><code>for (var x=1; x<=10; x++){
+console.log(x); 
+if (x == 3){console.log("I like turtles!");}
+}</code></pre>
+
+<div>
+
+<p>A las variables se les puede encargar guardar más que cadenas de caracteres y números. Eso lo podrías revisar en otra instancia. Por ahora, favor considera suficiente un ejemplo para probar en consola:</p>
+
+<pre><code>var bolso = ["computador", "lápices", "libreta", "alcohol gel"];
+var compu = {modelo:"MacBook Pro", memoria:"10GB", os:"macOS Sierra"};
+console.log(bolso[0] + " " + compu.modelo);</code></pre>
+
+</div>
+
+<h3>2. Desplegar una alerta con un click</h3>
+
+<!--otro comentario para anunciar que este botón contiene javascript-->
+<button onclick="alert(saludo + ' Yo soy una alerta de tu navegador')">el botón</button>
+
+<p>Si presionas el botón, el navegador desplegará una alerta. Para hacerlo, basta con tomar el elemento HTML <code>&lt;button&gt;…&lt;/button&gt;</code> y agregarle un atributo <code>OnClick</code>, que en su variable contenga la programación de la impresión de una alerta, cuyo mensaje se define entre paréntesis. En este caso, como en el primer mensaje que vimos en la consola, tenemos el resultado de concatenar lo que guardaba una variable con una cadena de caracteres entre comillas. Esto es:</p>
+
+<pre><code>&lt;button onclick="alert(saludo + ' Yo soy una alerta de tu navegador')"&gt;el botón&lt;/button&gt;</code></pre>
+
+<h3>3. Manipular el DOM</h3>
+
+<p>¿Recuerdas cuánto costaba el programa de gobierno de Ossandón?</p>
+
+<p id="cifra"></p>
+
+<p>Si revisas el código fuente de la página, notarás que el párrafo de identidad "cifra" está vacío. El texto está como puesto allí con JavaScript. Lo mismo pasa más arriba, con el encabezado de primer nivel. En esta misma revisión del código fuente podrás encontrar cómo hace.</p>
+
+<p>Esto es un ejemplo sencillo de manipulación del DOM. Esto es como "photoshopear" una imagen: Si capturaste 3 elementos, y con Photoshop le agregas un cuarto, en ningún caso estás modificando lo que fue, en principio, capturado. Pero la gente verá 4 elementos en la imagen.</p>
+
+<h3>4. Cerrar con jQuery</h3>
+
+<p id="pedrito">Pedrito pregunta: —Y si existiese código JavaScript listo, como esos alimentos para quienes no somos cocineros o no tenemos tiempo para cocinar. En mi analogía, pienso en algo que me pida agua hervida, esperar un poco y revolver, nada más–.</p> 
+
+<p>Profesor responde: –Eso ya existe. Le recomiendo revisar <a href="https://www.javascripting.com/" target="_blank">www.javascripting.com</a>–.</p>
+
+<button class="desaparece">Que desaparezca Pedrito</button>
+
+<button class="aparece">Que vuelva a aparecer</button>
+
+<p>¿Por qué desaparece Pedrito? Nuevamente te invito a revisar el código fuente, allí podrás encontrar la repuesta.</p>
+
+<p id="fecha"></p>
+
+<!--acá te dejo la cifra de ossandón-->
+
+<script>
+	var a = "cuatro mil trescientos cuarenta";
+	var b = "cuatro mil quinientos millones";
+	var c = "cinco dólares";
+	var ossandon = "costaba " + a + " y " + b + " coma " + c;
+	// Para comprender mejor las siguientes líneas 
+	// puedes cosultar http://xahlee.info/js/js_get_elements.html
+	document.getElementById("cifra").innerHTML = ossandon;
+	document.getElementsByTagName("h1")[0].innerHTML = saludo;
+	document.getElementById("fecha").innerHTML = Date();
+</script>
+
+<!--Lo que sigue también es JavaScript, pero en este caso estoy vinculando una  librería de JavaScript famocilla: jQuery--> 
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<!--y lo último se aprovecha del jQuery que acabo de vincular-->
+<script>
+	//podrán notar una estructura que se repite
+	$(document).ready(function(){
+	    $(".desaparece").click(function(){
+	        $("#pedrito").fadeOut(1000);
+	    });
+	    $(".aparece").click(function(){
+	        $("#pedrito").fadeIn(1000);
+	    });
+	});
+</script>
+
+</body>
+</html>

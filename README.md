@@ -3,4 +3,4 @@ Multimedia II · Diseño Gráfico · Universidad de Chile
 
 - - - - - - - 
 
-[Siguiente clase](https://github.com/profesorfaco/multimedia2_1)
+[Siguiente clase](https://github.com/profesorfaco/multimedia2_2)

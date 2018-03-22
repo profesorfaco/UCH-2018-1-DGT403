@@ -11,9 +11,9 @@ Aprovechémonos del propósito de la asignatura de Multimedia, redactado en 2015
 Si esto lo traducimos a términos habituales y actuales, tendríamos que decir que es necesario entregar:
  
 - técnicas y herramientas de [Front End](https://www.ida.cl/blog/desarrollo/desarrollador-front-end/)
-- técnicas y herramientas de [UX](http://blog.acantu.com/que-es-ux-y-ui/)
+- técnicas y herramientas de [DCU y UX](https://www.ida.cl/blog/diseno/workshop-diseno-centrado-en-el-usuario-y-ux/)
 
-Partiremos abordando Front-End, y dejaremos para una segunda parte del curso el tratamiento del Diseño UX.
+Partiremos abordando Front-End, y dejaremos para una segunda parte del curso el tratamiento de DCU y UX.
 
 ### Diagnóstico 
 

@@ -1,0 +1,27 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+  padding-top: 3.5rem;
+}
+
+a{color:white;}
+
+a:hover{color:white;}
+
+.bg-pinky{
+	background:#FF958D;
+}
+
+.bg-pinky a{
+	color:rgba(255,255,255,0.6);
+}
+
+.bg-pinky a:hover{
+	color:rgba(255,255,255,1);
+}
+
+h3{
+	font-size:1.2rem;
+}
+
+.modal a{color:red;}
+

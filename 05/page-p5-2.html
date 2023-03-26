@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Multimedia II</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,600,600i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">JavaScript ❤ Data</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Portada</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="page-js.html">JavaScript</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="page-jquery.html">jQuery.js</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="https://github.com/profesorfaco/multimedia2_5" id="dropdownD3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">D3.js</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownD3">
+                          <a class="dropdown-item" href="page-d3-1.html">JSON</a>
+                          <a class="dropdown-item" href="page-d3-2.html">CSV</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="https://github.com/profesorfaco/multimedia2_5" id="dropdownP5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">P5.js</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownP5">
+                          <a class="dropdown-item" href="page-p5-1.html">JSON</a>
+                          <a class="dropdown-item active" href="page-p5-2.html">CSV</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 py-5">
+                <p><strong><a href="https://p5js.org/">P5.js</a> es una biblioteca de JavaScript</strong> que reinterpreta Processing para la Web. Se llama así por el primer dominio utilizado por el proyecto que reinterpreta: <em>“Proce55ing” is the spelling we originally used for the URL of the web site, because "Processing" was already taken</em> (<a href="https://github.com/processing/processing/wiki/FAQ" target="_blank">Processing FAQ</a>).</p>
+                <p>Más que facilitarnos la manipulación del DOM o el trabajo con datos, lo que hace P5.js es ofrecernos una vía de acceso a la programación visual con JavaScript. Y el <a href="https://developer.mozilla.org/es/docs/Web/Guide/HTML/Canvas_tutorial" title="Tutorial Canvas - Guía de Desarrollo Web | MDN">canvas</a> es el espacio para desplegar lo que se programa.</p>
+                <p>Vamos ahora, nuevamente, a buscar esa lista inspirada en la canción de Café Tacuba:</p>
+                <div id="aqui" class="my-4"></div>
+            </div>
+            <!--/col-10-->
+            <div class="col-12 border-top">
+                <div class="row py-3 small">
+                    <div class="col-sm-6">
+                        <p>Multimedia II 2018, Primer Semestre</p>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <p><a href="https://github.com/profesorfaco/multimedia2_5">Clase 5 · Viernes 20 de abril</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--LO QUE SIGUE SON SCRIPTS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+<script>
+var data; 
+function preload() {
+    data = loadTable('https://raw.githubusercontent.com/profesorfaco/multimedia2_5/gh-pages/data/volver_a_comenzar.csv','csv','header');
+}
+function setup() {
+    var elCanvas = createCanvas(925,525);
+    elCanvas.parent('aqui');
+    console.log(data);
+    noLoop();
+}
+function draw(){
+    background(203, 230, 253);
+    textSize(15);
+    var peores = 0;
+    var menores = 0;
+    for (var a = 0; a < data.getRowCount(); a++) {
+        if (data.get(a,1)=="peor"){ 
+            fill(0);
+            var txt = data.get(a,0) + " (peor " + data.get(a,2) + ")";
+            peores++; 
+        } else { 
+            fill(100);
+            var txt = data.get(a,0) + " (" + data.get(a,2) + ")";
+            menores++; 
+        }
+        text(txt, 275, 30*(a+1) );
+    }
+    angleMode(DEGREES);
+    noStroke();
+    var anguloMenores = Math.round(360/(data.getRowCount()/menores));
+    var anguloPeores = Math.round((360/(data.getRowCount()/menores)+360/(data.getRowCount()/peores)));
+    fill(112, 170, 204);
+    arc(125, 125, 200, 200, 0, anguloMenores, PIE);
+    ellipse(80,260,15,15);
+    text("Menores", 95, 265);    
+    fill(0, 113, 171);
+    arc(125, 125, 200, 200, anguloMenores, anguloPeores, PIE);
+    ellipse(80,290,15,15);
+    text("Peores", 95, 295);
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>

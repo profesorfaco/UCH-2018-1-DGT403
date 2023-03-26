@@ -1,0 +1,13 @@
+body{
+padding-top:5rem;
+background:rgb(255, 255, 255);
+font-family: 'IBM Plex Sans Condensed', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-family: 'Fruktur', cursive;
+}
+
+.bg-otro{
+	background:rgb(255,255,0);
+}

@@ -1,0 +1,82 @@
+[
+   {
+      "error":"Lorem ipsum dolor sit amet",
+      "gravedad":"menor",
+      "clase":"herida"
+   },
+   {
+      "error":"Sed eget elit ut enim cursus",
+      "gravedad":"menor",
+      "clase":"herida"
+   },
+   {
+      "error":"Donec at ipsum eu ante pretium",
+      "gravedad":"menor",
+      "clase":"fracaso"
+   },
+   {
+      "error":"Nunc efficitur libero placerat",
+      "gravedad":"menor",
+      "clase":"fracaso"
+   },
+   {
+      "error":"Fusce maximus dui eu rutrum",
+      "gravedad":"menor",
+      "clase":"desamor"
+   },
+   {
+      "error":"Quisque in risus non sem sagittis",
+      "gravedad":"menor",
+      "clase":"desamor"
+   },
+   {
+      "error":"Phasellus pharetra orci in maximus",
+      "gravedad":"menor",
+      "clase":"mentira"
+   },
+   {
+      "error":"Aliquam gravida tellus vel efficitur",
+      "gravedad":"menor",      
+      "clase":"mentira"
+   },
+   {
+      "error":"Mauris pharetra tortor eget molestie",
+      "gravedad":"peor",
+      "clase":"herida"
+   },
+   {
+      "error":"In non sapien eu augue porta malesuada",
+      "gravedad":"peor",
+      "clase":"herida"
+   },
+   {
+      "error":"In feugiat lacus eu mauris venenatis",
+      "gravedad":"peor",
+      "clase":"fracaso"
+   },
+   {
+      "error":"Ut imperdiet nisl non eros pulvinar",
+      "gravedad":"peor",
+      "clase":"fracaso"
+   },
+   {
+      "error":"Nam fringilla mauris maximus convallis",
+      "gravedad":"peor",
+      "clase":"desamor"
+   },
+   {
+      "error":"Duis gravida sapien nec auctor bibendum",
+      "gravedad":"peor",
+      "clase":"desamor"
+   },
+   {
+      "error":"Cras tincidunt mauris quis tempor",
+      "gravedad":"peor",
+      "clase":"mentira"
+   },
+   {
+      "error":"Etiam euismod dui at euismod pharetra",
+      "gravedad":"peor",
+      "clase":"mentira"
+   }
+]

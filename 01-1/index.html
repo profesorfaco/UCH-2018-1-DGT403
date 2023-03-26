@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<!--un documento html tiene dos partes-->
+<html>
+	<!--una parte es la cabeza-->
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>A la piscina!</title>
+	<link href="style.css" rel="stylesheet">
+	</head>
+	<!--la otra parte es el cuerpo-->
+	<body class="hidden">
+		<div class="principal">
+			<h1></h1>
+			<p>Tu <a href="https://es.wikipedia.org/wiki/Navegador_web">navegador web</a> terminó de "renderizar" esta página <span id="timestamp"></span> segundos después de la medianoche UTC del día 1 de enero de 1970 (así funciona el <a href="https://es.wikipedia.org/wiki/Tiempo_Unix" title="Wikipedia">Tiempo Unix</a>). Puesto de un modo menos <a href="https://youtu.be/2NucTKsif8U" title="YouTube">nerd</a>, la fecha y hora en la que tu navegador te mostró este documento es <span id="timestring"></span>.</p>
+
+			<p>Lo primero que haremos en este módulo será examinar el código fuente de esta página web. Para la mayoría esto podría ser como lanzarse a la piscina del <strong>Front-end web development</strong>, sin saber nadar. En la piscina encontraremos algo de <a href="https://github.com/profesorfaco/modulo-web/wiki/HTML" title="HTML · profesorfaco/modulo-web Wiki">HTML</a>, <a href="https://github.com/profesorfaco/modulo-web/wiki/CSS" title="CSS · profesorfaco/modulo-web Wiki">CSS</a> y <a href="https://github.com/profesorfaco/modulo-web/wiki/JavaScript" title="JavaScript · profesorfaco/modulo-web Wiki">JavaScript</a>. Poner atención <a href="https://youtu.be/f1XSUQD2c8w" title="YouTube">les ayudará a no ahogarse</a>.</p>
+			
+			<h2>HTML</h2>
+			
+			<p>HTML es HyperText Markup Language. Su bloque constructivo más básico es el elemento. Cada elemento de HTML se escribe, generalmente, entre etiquetas que pueden o no contener atributos: <code>&lt;etiqueta atributo="valor"&gt;contenido&lt;/etiqueta&gt;</code>. 
+			
+			<h2>CSS</h2>
+			
+			<p>CSS es Cascading Style Sheets. Su bloque constructivo más básico es la regla. Cada regla CSS se compone de la siguiente manera: <code>selector{propiedad:valor;}</code></p>
+			
+			<h2>JavaScript</h2>
+			
+			<p>HTML y CSS son lenguajes descriptivos. No son lenguajes de programación. Describen, respectivamente, algo por vestir y un "dress code". Pero se trata de algo inerte. Para poder darle vida a este cuerpo es necesario utilizar un lenguaje de programación.</p>
+			
+			<h4>1. Consola de JavaScript</h4>
+			
+			<p>Utiliza el "shortcut" de teclado que corresponda:</p>
+			
+			<ul>
+			<li>Si estás usando <strong>Chrome</strong> en PC, presiona Ctrl + Shift + J. Si estás usando el mismo navegador en Mac, presiona Cmd + Alt + J</li>
+			<li>Si estás usando <strong>Firefox</strong> en PC, presiona Ctrl + Shift + K. Si estás usando el mismo navegador en Mac, presiona: Cmd + Alt + K</li>
+			<li>Si estás usando <strong>Safari</strong>, presiona: Cmd + Alt + C (aunque no es recomendable seguir trabajando con este navegador web, descarga uno de los anteriores)</li>
+			</ul>
+			
+			<p>Cuando aparezca la consola podrás leer un mensaje (que yo dejé programado; no es que aparezca por defecto).</p>
+			
+			<p>En la consola también puedes escribir algo. Intenta copiando, pegando, modificando y presionando Enter:</p>
+			
+			<pre><code>var sujeto = "Lorem"; var adjetivo = "ipsum"; sujeto +" es muy "+ adjetivo;</code></pre>
+			
+			<p>Lo que hiciste fue crear <strong>var</strong>iables, a las que asignaste "cadenas de caracteres". Pero no tendrías que ocupar comillas de utilizar números:</p>
+			
+			<pre><code>var primervalor = 20; var segundovalor = 30; primervalor + segundovalor;</code></pre>
+			
+			<p>Antes de que presiones Enter, una pregunta: ¿Qué crees que resultará, 50 o 2030?</p>
+			
+			<p>En caso que no le hayas acertado a la respuesta, podrías tener más suerte con lo que sigue: Piensa un número entre 1 y 10.</p>
+			
+			<pre><code>Math.floor((Math.random() * 10) + 1);</code></pre>
+			
+			<p>La función <code>Math.random()</code> me entrega un número pseudo-aleatorio entre el 0 (incluido) y el 1 (excluido), y la función <code>Math.round()</code> acerca el número al entero más cercano. Hablar de funciones es hablar de programación.</p>
+			
+			<h4>2. Manipular el DOM</h4>
+			
+			<p>Si revisas el código fuente de la página, notarás que hay algunos espacios vacíos. Fíjate en la línea 14, donde hay un <code>&lt;h1&gt;&lt;/h1&gt;</code>. Fíjate también en la línea 15, donde podrás encontrar un <code>&lt;span id="timestamp"&gt;&lt;/span&gt;</code> y un <code>&lt;span id="timestring"&gt;&lt;/span&gt;</code>. Pero estos espacios se rellenan con texto mediante JavaScript y la manipulación del <a href="https://es.wikipedia.org/wiki/Document_Object_Model" title="Wikipedia">Document Object Model (DOM)</a>.</p>
+			
+			<p>Manipular el DOM es como "photoshopear" una imagen. Si capturaste 3 elementos, y con Photoshop le agregas un cuarto, en ningún caso estás modificando lo que fue, en principio, capturado… pero sí se ve algo más "como puesto" allí.</p>
+			
+			<h4>3. Usar bibliotecas</h4>
+
+			<p>La página tiene un efecto al cargarse: Un fadeIn de 1000 milisegundos que se logra con el uso de <a href="https://jquery.com/">jQuery</a> (una de las bibliotecas de JavaScript más utilizadas). Y la página cierra con hay una "visualización", que se logra con el uso de <a href="https://p5js.org/es/">p5.js</a>, una biblioteca de JavaScript creada con el objetivo original de Processing (hacer la programación accesible a artistas, diseñadores, educadores y principiantes)</p>
+
+		</div>
+		<div id="pifaiv"></div>
+
+		<!--Lo que sigue es algo de programación con JavaScript-->
+		<script>
+			var nombre = "Nombre"
+			var saludo = "Hola "+nombre+"!";
+			var tiempo = Date.now();
+			var fecha = new Date();
+			document.getElementById("timestamp").innerHTML = Math.round(tiempo/1000);
+			document.getElementById("timestring").innerHTML = fecha;
+			document.getElementsByTagName('h1')[0].innerHTML = saludo;
+			console.log(saludo + " Yo soy la consola de JavaScript de tu Navegador");
+		</script>
+		<!--Lo que sigue es algo de jQuery, una biblioteca de JavaScript-->
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script>
+			$(function() {
+			    $('body').fadeIn(1000).removeClass('hidden');
+			});
+		</script>
+		<!--Lo que sigue es algo de p5.js, otra biblioteca de JavaScript-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+		<script>
+			var birth = {
+				day:3, 
+				month:6, 
+				age:38
+			};
+			
+			function setup() {
+				var canvas = createCanvas(windowWidth, 300);
+				canvas.parent('pifaiv');
+				smooth();
+				noLoop();
+				noStroke();
+			}
+			
+			function draw() {
+				background(240);
+				for (var d = 0; d < 365; d++){
+					if (d <= 238) {
+						fill(155,155);
+					} else {
+						fill(55,155);
+					}
+				 ellipse((windowWidth/365)*d,height/2,2,2);
+				}
+				var x = Math.round(birth.day+((birth.month-1)*30.41));
+				fill(0);
+				ellipse((windowWidth/365)*x,height/2,2,2);
+				textAlign(CENTER);
+				textSize(15);
+				text(birth.day + "/" + birth.month, (windowWidth/365)*x,(height/2)+25);
+				textSize(12);				
+				text("En 2018 cumplo " + birth.age + " años :-/", windowWidth/2,50);
+			}
+			
+			function windowResized() {
+  				resizeCanvas(windowWidth, 300);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+error,gravedad,clase
+"Lorem ipsum dolor sit amet",menor,herida
+"Sed eget elit ut enim cursus",menor,herida
+"Donec at ipsum eu ante pretium",menor,fracaso
+"Nunc efficitur libero placerat",menor,fracaso
+"Fusce maximus dui eu rutrum",menor,desamor
+"Quisque in risus non sem sagittis",menor,desamor
+"Phasellus pharetra orci in maximus",menor,mentira
+"Aliquam gravida tellus vel efficitur",menor,mentira
+"Mauris pharetra tortor eget molestie",peor,herida
+"In non sapien eu augue porta malesuada",peor,herida
+"In feugiat lacus eu mauris venenatis",peor,fracaso
+"Ut imperdiet nisl non eros pulvinar",peor,fracaso
+"Nam fringilla mauris maximus convallis",peor,desamor
+"Duis gravida sapien nec auctor bibendum",peor,desamor
+"Cras tincidunt mauris quis tempor",peor,mentira
+"Etiam euismod dui at euismod pharetra",peor,mentira

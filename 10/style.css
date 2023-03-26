@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900');
+
+body{
+	background:#EF9A9A;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: 900;
+  font-family: 'Playfair Display', serif;
+}
+
+.lead{
+	margin-top:1.25rem;
+	font-weight: bold;
+}
+
+em{
+	font-weight: bold;
+	font-style: normal;
+}
+
+blockquote {
+	font-size:130%;
+	font-family: "Times New Roman", Times, serif;
+	font-style: italic;
+}
+
+blockquote::before{
+	content:"«";
+	font-weight:bold;
+}
+
+blockquote::after{
+	content:"»";
+	font-weight:bold;
+}
+
+:hover{
+	transition: all ease .5s;
+}
+
+a{
+	color:red;
+}
+
+a[href^="mailto:"] {
+    color:blue;
+}
+
+a[href$=".pdf"] {
+    color:green;
+}
+
+a[href$=".pdf"]::before {
+    content:"[documento] ";
+}
+
+figure{
+	padding:0.3rem;
+	background:rgba(255,255,255,0.75);
+	box-shadow: 0 0 5px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+figure figcaption{
+	margin:0.5rem 1rem;
+}
+
+figure img {
+	filter:	grayscale(1);
+}
+
+figure img:hover {
+	filter:	grayscale(0);
+}
+
+
+
+
+
+

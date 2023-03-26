@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <title>D3.js</title>
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+              <p><a href="index.html">Donuts</a> | <a href="page-csv.html">Comunas de Santiago</a> | <a href="page-json.html">Precios</a> </p>
+            </div>
+
+            <div class="col-12">
+               <h3>Comunas de Santiago</h3>
+               <h5>Densidad de las comunas de Santiago <a href="https://es.wikipedia.org/wiki/Anexo:Comunas_de_Santiago_de_Chile#Conurbaci%C3%B3n_de_Santiago" target="_blank" class="badge badge-secondary">2002</a></h5>
+               <p>Este gráfico se construye mediante consulta a <a href="https://github.com/profesorfaco/dno037-2018-07/blob/master/data/comunas.csv" target="_blank">un CSV</a>, gestionada por <a href="https://github.com/d3/d3-fetch" target="_blank">D3.js</a>. Pueden ver el resultado de la consulta en la consola.</p>
+               <div id="here" class="my-4"></div>
+            </div>
+         </div>
+      </div>
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <script>
+         var w = 980, f = 0.05, h = 25;
+         
+         d3.csv("https://raw.githubusercontent.com/profesorfaco/multimedia2_7/gh-pages/data/comunas.csv").then(function(data) {
+         
+           console.log(data);
+         
+           var viz = d3.select("#here")
+             .append("svg")
+             .attr("width", w)
+             .attr("height", h * data.length)
+             .style("background","#EEEEEE");
+         
+           var bar = viz.selectAll("g")
+             .data(data)
+             .enter()
+             .append("g")
+             .attr("transform", function(d, i) { return "translate(0," + i * h + ")"; });
+             
+             bar.append("rect")
+               .attr("width", function(d) { return d.densidad * f; })
+               .attr("height", h - 5);
+             
+             bar.append("text")
+               .attr("x", function(d) { return (d.densidad * f)+5; })
+               .attr("y", h / 2)
+               .text(function(d) { return d.comuna; })
+               .attr("fill","#445566")
+               .attr("font-size","12")
+               .attr("font-weight","bold")
+             
+             bar.append("text")
+               .attr("x", function(d) { return (d.densidad * f)-10; })
+               .attr("y", h / 2)
+               .text(function(d) { return Math.round(d.densidad); })
+               .attr("fill","#FFFFFF")
+               .attr("font-size","12")
+               .attr("text-anchor","end")
+         })
+      </script>
+      <!-- jQuery primero, luego Popper.js, y finalmente Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   </body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      <title>Hola mundo!</title>
+   </head>
+   <body>
+      <div class="container">
+        <div class="row">
+          <div class="col" id="aqui">
+            <h1>Hola mundo!</h1>
+
+          </div>
+        </div>
+      </div>
+    
+
+      <!--acá estoy tomando la bibliotca de D3.JS-->      
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <!--después de llamada la biblioteca, puedo comenzar a referirme a ella-->
+      <script>
+        var texto = {frase : ["Nuevo \"párrafito\"","Viejo \"párrafito\""]};
+         d3.select("#aqui").append("p").text(texto.frase[0]);
+         console.log(texto.frase[1]);
+
+         var objeto = {
+          horizontal:500, 
+          vertical:200, 
+          color:"#CCCCCC"
+        }
+
+
+         d3.select("#aqui")
+         .append("svg")
+         .attr("width",objeto.horizontal)
+         .attr("height",objeto.vertical)
+         .style("background-color",objeto.color)
+         
+         .append("circle")
+         .attr("cx",objeto.horizontal/3)
+         .attr("cy",objeto.vertical/3)
+         .attr("r",objeto.horizontal*0.1)
+         .attr("fill","#FF0000")
+         .attr("fill-opacity",0.25)
+
+
+      </script>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+   </body>
+</html>

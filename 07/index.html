@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="w=device-w, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <title>D3.js</title>
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+              <p><a href="index.html">Donuts</a> | <a href="page-csv.html">Comunas de Santiago</a> | <a href="page-json.html">Precios</a> </p>
+            </div>          
+            <div class="col-12">
+               <h3>Más grandes</h3>
+               <h5>Pie chart con hoyito: Donnut chart</h5>
+               <p>Aquí dejo como ejemplo con las superficies de países más grandes del mundo.</p>
+               <div id="here" class="my-4"></div>
+            </div>
+         </div>
+      </div>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script>
+
+   var w = 980, h = 350, radius = 200;
+   
+   var calculo = [
+      {name: 'RUS', count: 17100000, color: '#0F2360'},
+      {name: 'CAN', count: 9970000, color: '#17366F'},
+      {name: 'CHN', count: 9600000, color: '#20497E'},
+      {name: 'USA', count: 9160000, color: '#295D8D'},
+      {name: 'BRA', count: 8515000, color: '#31709D'},
+      {name: 'AUS', count: 7690000, color: '#3A84AC'},
+    ];
+    
+    var arc = d3.arc().outerRadius(radius - 50).innerRadius(100);
+    
+    var pie = d3.pie().sort(null).value(function(d) { return d.count; });
+
+    var svg = d3.select('#here').append("svg")
+      .attr("width", w)
+      .attr("height", h)
+      .style("background","#EEEEEE")
+      .append("g")
+      .attr("transform", "translate(" + w/2 + "," + h/2 + ")");
+
+    var g = svg.selectAll(".arc")
+      .data(pie(calculo))
+      .enter().append("g");    
+    
+    g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d,i) { return d.data.color; });
+    
+    g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .style("text-anchor", "middle")
+      .text(function(d) { return d.data.name; })
+      .attr("fill","white")
+      .style("font-size","11px")
+
+</script>
+      <!-- jQuery primero, luego Popper.js, y finalmente Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   </body>
+</html>

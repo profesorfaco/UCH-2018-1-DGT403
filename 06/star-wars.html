@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      <title>Star Wars</title>
+      <style>
+        svg{
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.9) 100%), url('https://static0.cbrimages.com/wp-content/uploads/2017/12/star-wars-saga.jpg');
+          background-size:100% auto;
+          background-position:center 50%;
+          background-repeat:no-repeat;
+        }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col py-3" id="aqui">
+               <h1>Star Wars</h1>
+               <p>Este es el tamaño de algunos de los planetas en el universo de Starwars</p>
+            </div>
+         </div>
+      </div>
+      <!--acá estoy tomando la bibliotca de D3.JS-->      
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <!--después de llamada la biblioteca, puedo comenzar a referirme a ella-->
+      <script>
+         // vamos a buscar otra data 
+         d3.csv("https://raw.githubusercontent.com/profesorfaco/multimedia2_6/gh-pages/data/swapi-planets.csv").then(function(data) {
+           console.log(data);
+          
+            var w = 980, h = 350, f = 2000;
+          
+             var svg = d3.select("#aqui")
+             .append("svg")
+              .attr("width", w)
+              .attr("height", h)
+
+             //selecciona el grupo
+             var g = svg.selectAll("g")
+               .data(data)
+               .enter()
+               .append("g")  
+             //dentro del grupo, crea círculos para la data
+             g.append("circle")
+               .attr("cx", function(d, i) { 
+                 return (i+1) * w/(data.length+1); }
+                 )
+               .attr("cy", function(d) { return h/2; })
+               .attr("r", function(d) { return d.diameter/f; })
+
+               .attr("fill",function(d) {
+                  if (d.climate == "frozen"){
+                    return "rgb(111, 177, 187)"
+                  } else if (d.climate =="arid"){
+                    return "rgb(225, 186, 119)"
+                  } else if (d.climate =="murky"){
+                    return "rgb(148, 149, 80)"
+                  } else {
+                    return "rgb(182, 116, 92)"
+                  }
+                })
+             
+             //dentro del mismo grupo, agregar texto para la data
+             g.append("text")
+               .attr("x", function(d, i) { return (i+1) * w/(data.length+1); })
+               .attr("y", function(d, i) { return (h/1.75)+d.diameter/f; })
+               .attr("fill","#111111")
+               .attr('text-anchor','middle')
+               .text(function(d) { return d.name; })
+             //dentro del mismo grupo, agrega otro texto para la data
+             g.append("text")
+               .attr("x", function(d, i) { return (i+1) * w/(data.length+1); })
+               .attr("y", function(d, i) { return (h/1.6)+d.diameter/f; })
+               .attr("fill","#333333")
+               .attr('text-anchor','middle')      
+               .text(function(d) { return "("+d.climate+")"; })
+               .style("font-size","9px")         
+         
+         });     
+      </script>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+   </body>
+</html>

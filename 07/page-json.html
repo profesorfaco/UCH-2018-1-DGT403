@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <title>D3.js</title>
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+              <p><a href="index.html">Donuts</a> | <a href="page-csv.html">Comunas de Santiago</a> | <a href="page-json.html">Precios</a> </p>
+            </div>            
+            <div class="col-12">
+               <h3>Precios del dolar</h3>
+               <h5>Precios del dolar del último mes</h5>
+               <p>Este gráfico se construye mediante consulta a <a href="https://mindicador.cl/api/dolar" target="_blank">un JSON</a>, gestionada por <a href="https://github.com/d3/d3-fetch" target="_blank">D3.js</a>. Pueden ver el resultado de la consulta en la consola.</p>
+               <div id="here" class="my-4"></div>
+            </div>
+         </div>
+      </div>
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <script>
+         
+         var w = 980, h = 350, f = 0.5, p=1;
+         
+         d3.json("https://mindicador.cl/api/dolar").then(function(data) {
+            var precios = d3.values(data.serie);
+            console.log(precios);
+
+
+         var svg = d3.select("#here")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h)
+                  .style("background","#EEEEEE");
+
+         svg.selectAll("rect")
+            .data(precios)
+            .enter()
+            .append("rect")
+            .attr("x", function(d, i) {
+                  return i * (w / precios.length);
+            })
+            .attr("y", function(d) {
+                  return h - (d.valor * f);
+            })
+            .attr("width", w / precios.length - p)
+            .attr("height", function(d) {
+                  return d.valor * f;
+            })
+            .attr("fill", function(d) {
+               return "rgb(0, 0, " + (d.valor * f) + ")";
+            });
+
+         svg.selectAll("text")
+            .data(precios)
+            .enter()
+            .append("text")
+            .text(function(d) {
+                  return Math.round(d.valor);
+            })
+            .attr("text-anchor", "middle")
+            .attr("x", function(d, i) {
+                  return i * (w / precios.length) + (w / precios.length - p) / 2;
+            })
+            .attr("y", function(d) {
+                  return h - (d.valor * f)+20;
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "11px")
+            .attr("fill", "white");
+
+
+
+           
+         })
+      </script>
+      <!-- jQuery primero, luego Popper.js, y finalmente Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   </body>
+</html>

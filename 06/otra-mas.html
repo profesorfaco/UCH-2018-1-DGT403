@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      <title>Hola mundo!</title>
+   </head>
+   <body>
+      <div class="container">
+        <div class="row">
+          <div class="col" id="aqui">
+            <h1>Hola mundo!</h1>
+          </div>
+        </div>
+      </div>
+    
+
+      <!--acá estoy tomando la bibliotca de D3.JS-->      
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <!--después de llamada la biblioteca, puedo comenzar a referirme a ella-->
+    <script>
+    //variables globales
+    var w = 980, h = 350, f = 50000;
+    //datos
+    var data = [
+      {name: 'Santiago', population: 5631839, bg: "#b10026"},
+      {name: 'Concepción', population: 848023, bg: "#fd8d3c"},
+      {name: 'Valparaíso', population: 824006, bg: "#feb24c"},
+      {name: 'Coquimbo', population: 296253, bg: "#fed976"}
+    ]    
+    console.log(data);
+    //crea el svg dentro del elemento de identidad "here"
+    var svg = d3.select("#aqui")
+    .append("svg")
+      .attr("width", w)
+      .attr("height", h)
+      .style("background","#EEEEEE");
+    //selecciona el grupo
+    var g = svg.selectAll("g")
+      .data(data)
+      .enter()
+      .append("g")  
+    //dentro del grupo, crea círculos para la data
+    g.append("circle")
+      .attr("cx", function(d, i) { 
+        return (i+1) * w/(data.length+1); }
+        )
+      .attr("cy", function(d) { return h/2; })
+      .attr("r", function(d) { return d.population/f; })
+      .attr("fill",function(d) { return d.bg; })
+    //dentro del mismo grupo, agregar texto para la data
+    g.append("text")
+      .attr("x", function(d, i) { return (i+1) * w/(data.length+1); })
+      .attr("y", function(d, i) { return (h/1.75)+d.population/f; })
+      .attr("fill","#999999")
+      .attr('text-anchor','middle')
+      .text(function(d) { return d.name; })
+    //dentro del mismo grupo, agrega otro texto para la data
+    g.append("text")
+      .attr("x", function(d, i) { return (i+1) * w/(data.length+1); })
+      .attr("y", function(d, i) { return (h/1.6)+d.population/f; })
+      .attr("fill","#333333")
+      .attr('text-anchor','middle')      
+      .text(function(d) { return "("+d.population+")"; })
+      .style("font-size","9px")
+    </script>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+   </body>
+</html>

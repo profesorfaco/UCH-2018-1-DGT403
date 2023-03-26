@@ -1,0 +1,16 @@
+id,nombre,tipo,estudiante,funcion,foto
+1,Benchmarking,herramienta,Camila Chocobar,"Para evaluar los productos que son competidores del que estamos diseñando, desde el punto de vista del usuario final",img/benchmarking.jpg
+2,Business Model Canvas,canvas,Bárbara Leal,"Para hacernos una perspectiva del panorama en el que implementaremos nuestro proyecto, desarrollar nuevas iniciativas e identificar oportunidades.",img/business-model-canvas.jpg
+3,Cognitive Walkthrough,herramienta,Luis Salazar,"Para evaluar interfaces, sobretodo aquellas que se pueden aprender a utilizar por exploración.",img/cognitive-walk.jpg
+4,Desk Research,herramienta,Camila Chocobar,Para recoger información a partir de estudios e investigaciones ya realizadas y que han publicado sus resultados,img/desk-research.jpg
+5,Diagrama de Flujo,Herramienta,Bárbara Leal,Para ilustrar una secuencia de operaciones a realizar y conseguir la solución a un problema.,img/flowchart.jpg
+6,Empathy Map,herramienta,Braulio Cardenas,Para ayudar a tomar conciencia y entender a los usuarios a quienes se dirige un producto o servicio.,img/empathy-map.jpg
+7,Lean Canvas,canvas,Braulio Cardenas,"Para conceptualizar el modelo de negocio de una empresa, punto de partida para diseñar nuevos escenarios y modelos",img/lean.jpg
+8,Lean UX Canvas,canvas,Camila Chocobar,Para recoger toda la información relevante sobre un tema en un solo lugar para guiar el proceso de desarrollo de un servicio o producto,img/lean-ux-canvas.jpg
+9,Paper Prototype,entregable,Bárbara Leal,"Para realizar un testeo de usabilidad, donde los usuarios realizan tareas e interactúan con una versión en papel de una interfaz. ",img/paper-prototyping.jpg
+10,PIX (Partitura de Interacción),herramienta,Bárbara Leal,"Para articular las posibles relaciones entre los usuarios, la interfaz visual y las respuestas del sistema.",img/pix.jpg
+11,Pixel Perfect Mockup,herramienta,Braulio Cardenas,Para que cada parte de la página o aplicación trabajen conjuntamente en ofrecer la mejor y la misma experiencia para los usuarios en cualquier tipo de navegador y dispositivo.,img/pixel-perfect.jpg
+12,"Revisión de Antecedentes & Referentes",herramienta,Luis Salazar,"Para determinar el estado del arte en relación a un proyecto y, a su vez encontrar ejemplos inspiradores para el desarrollo conceptual y formal de la propuesta.",img/antecedente-referente.jpg
+13,Scenario,herramienta,Braulio Cardenas,Para describir un personaje en una situación de uso del sistema o del producto interactivo con objetivos concretos.,img/scenario.jpg
+14,User Journey Map,entregable,Luis Salazar,Para determinar los momentos claves de un servicio y producir una propuesta de valor respecto a estos.,img/journey-map.jpg
+15,Value Proposition Canvas,canvas,Luis Salazar,Para evaluar la correlación de un servicio otorgado con las necesidades del segmento apuntado.,img/value-canvas.jpg

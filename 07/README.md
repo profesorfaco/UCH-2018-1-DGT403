@@ -1,8 +1,6 @@
-Diseño Gráfico · Universidad de Chile
+https://profesorfaco.github.io/UCH-2018-1-DGT403/07
 
-# Multimedia II
-
-### D3.JS
+## D3.JS
 
 Recordemos que estamos revisando [D3.JS (Data-Driven Documents)](https://d3js.org/): Una biblioteca de JavaScript, que nos simplifica el trabajo con datos, a nivel de manipulación y visualización, atendiendo a estándares web. 
 

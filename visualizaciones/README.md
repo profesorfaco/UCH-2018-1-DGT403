@@ -1,2 +1,1 @@
-# visualizaciones
-27 de julio. Multimedia 2
+https://profesorfaco.github.io/UCH-2018-1-DGT403/visualizaciones
